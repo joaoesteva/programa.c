@@ -19,11 +19,9 @@ void imprimirVetor(int v[], int n) {
 }
 
 void ordenar(int v[], int n) {
-    // Algoritmo de ordenação Bubble Sort
     for (int i = 0; i < n - 1; i++) {
         for (int j = 0; j < n - 1 - i; j++) {
             if (v[j] > v[j + 1]) {
-                // Troca os elementos
                 int temp = v[j];
                 v[j] = v[j + 1];
                 v[j + 1] = temp;
@@ -33,10 +31,10 @@ void ordenar(int v[], int n) {
 }
 
 void imprimirMaiorImpar(int v[], int n) {
-    int maiorImpar = -1;  // Inicializa como -1, valor indicando que não há ímpar.
+    int maiorImpar = -1; 
     
     for (int i = 0; i < n; i++) {
-        if (v[i] % 2 != 0) {  // Verifica se o número é ímpar
+        if (v[i] % 2 != 0) {
             if (maiorImpar == -1 || v[i] > maiorImpar) {
                 maiorImpar = v[i];
             }
@@ -52,8 +50,7 @@ void imprimirMaiorImpar(int v[], int n) {
 
 void criarParesImpares(int v[], int n, int pares[], int impares[]) {
     int parIndex = 0, imparIndex = 0;
-    
-    // Preenche os vetores pares e ímpares
+
     for (int i = 0; i < n; i++) {
         if (v[i] % 2 == 0) {
             pares[parIndex++] = v[i];
@@ -62,7 +59,6 @@ void criarParesImpares(int v[], int n, int pares[], int impares[]) {
         }
     }
     
-    // Preenche as posições restantes com -1
     for (int i = parIndex; i < n; i++) {
         pares[i] = -1;
     }
@@ -79,21 +75,17 @@ int main() {
 
     int v[n], pares[n], impares[n];
 
-    // Preenche o vetor com números fornecidos pelo usuário
     preencherVetor(v, n);
     
     printf("Vetor preenchido: ");
     imprimirVetor(v, n);
 
-    // Ordena o vetor
     ordenar(v, n);
     printf("Vetor ordenado: ");
     imprimirVetor(v, n);
 
-    // Imprime o maior valor ímpar
     imprimirMaiorImpar(v, n);
 
-    // Cria os vetores de pares e ímpares
     criarParesImpares(v, n, pares, impares);
     
     printf("Vetor de pares: ");
